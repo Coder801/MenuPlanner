@@ -1,0 +1,49 @@
+{
+  "name": "menu-planner",
+  "version": "0.0.0",
+  "description": "Plan your diet with this simple app",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm i && ./node_modules/.bin/webpack-dev-server",
+    "startWin": "npm i && .\\node_modules\\.bin\\webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coder801/MenuPlanner.git"
+  },
+  "keywords": [
+    "diet",
+    "react",
+    "menu"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Coder801/MenuPlanner/issues"
+  },
+  "homepage": "https://github.com/Coder801/MenuPlanner#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.4.1",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
+    "node-sass": "^3.10.0",
+    "postcss-loader": "^0.13.0",
+    "resolve-url-loader": "^1.6.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5"
+  }
+}
