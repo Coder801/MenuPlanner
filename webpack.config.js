@@ -6,7 +6,7 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
     // entry point for modules can be a map or an array
-    entry: join(__dirname, 'src/app.js'),
+    entry: join(__dirname, 'src/index.js'),
     // output file for modules
     output: { path: join(__dirname, 'build'), filename: 'bundle.js' },
     resolve: {
