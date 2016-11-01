@@ -4,7 +4,7 @@
   "description": "Plan your diet with this simple app",
   "main": "index.js",
   "scripts": {
-    "run": "node server.js",
+    "server": "node server.js",
     "start": "npm i && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
