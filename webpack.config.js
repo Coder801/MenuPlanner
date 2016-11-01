@@ -44,16 +44,6 @@ module.exports = {
     ],
     // creates source map for our code
     devtool: 'inline-source-map',
-    devServer: {
-        host: 'localhost',
-        port: 8080,
-        contentBase: join(__dirname, 'build'),
-        watchOptions: {
-            aggregateTimeout: 300,
-            hot: true,
-            poll: 1000
-        }
-    },
     'postcss': [
         autoprefixer({
             browsers: [
