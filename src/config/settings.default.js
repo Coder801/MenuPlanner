@@ -1,3 +1,3 @@
 export const defaultSettings = {
-    vegan: false
+  vegan: false
 };
