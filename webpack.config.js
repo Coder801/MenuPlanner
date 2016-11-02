@@ -6,9 +6,17 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
     // entry point for modules can be a map or an array
-    entry: join(__dirname, 'src/index.js'),
+    entry: [
+        'webpack-hot-middleware/client',
+        'babel-polyfill',
+        join(__dirname, 'src/index')
+    ],
     // output file for modules
-    output: { path: join(__dirname, 'build'), filename: 'bundle.js' },
+    output: {
+        path: join(__dirname, 'build'),
+        filename: 'bundle.js',
+        publicPath: '/'
+    },
     resolve: {
         // aliases for routes e.g. let us write import x from 'src/x' and not relative path '../../src/x'
         alias: {
@@ -17,7 +25,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, plugins: ['transform-runtime'] },
             { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css-loader!postcss-loader') },
             { test: /\.scss$/, loader: 'style!css?modules&sourceMap&localIdentName=[local]___[hash:base64:5]!resolve-url!sass?outputStyle=expanded&sourceMap' },
             {
@@ -27,6 +35,8 @@ module.exports = {
         ]
     },
     plugins: [
+        // Livetime reload modules
+        new webpack.HotModuleReplacementPlugin(),
         // HtmlPlugin create index.html in build/ . It uses ./src/index.html as a template and injects all generated files
         new HtmlPlugin({
             filename: 'index.html',
@@ -43,7 +53,7 @@ module.exports = {
         new ExtractTextPlugin('bundle.css')
     ],
     // creates source map for our code
-    devtool: 'inline-source-map',
+    devtool: 'cheap-module-eval-source-map',
     'postcss': [
         autoprefixer({
             browsers: [
