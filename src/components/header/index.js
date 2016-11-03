@@ -3,17 +3,17 @@ import { setDefaultSettings } from 'src/actions';
 import { Header } from './header';
 
 const mapStateToProps = (state) => {
-    return {
-        user: state.user
-    };
+  return {
+    user: state.user
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        onSettingsClick: () => {
-            dispatch(setDefaultSettings())
-        }
-    };
+  return {
+    onSettingsClick: () => {
+      dispatch(setDefaultSettings());
+    }
+  };
 };
 
 const HeaderContainer = connect(

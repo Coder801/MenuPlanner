@@ -3,8 +3,8 @@ import settings from './settings.reducer';
 import user from './user.reducer';
 
 const appReducer = combineReducers({
-    settings,
-    user
+  settings,
+  user
 });
 
 export default appReducer;
