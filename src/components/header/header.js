@@ -1,9 +1,10 @@
-export const Header = ({ user, onSettingsClick }) => {
+import { AppBar, FlatButton } from 'material-ui';
+
+export const Header = ({ user, onSettingsClick }) => { //eslint-disable-line
   return (
-        <div className="header">
-            <h3 className="heading">Menu Planner</h3>
-            <span>{user.name}</span>
-            <button onClick={onSettingsClick}>Settings</button>
-        </div>
+    <AppBar
+      title="Menu Planner"
+      iconElementRight={<FlatButton label="Settings" onTouchTap={onSettingsClick} />}
+    />
   );
 };
