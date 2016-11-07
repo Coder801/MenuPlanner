@@ -6,6 +6,7 @@ module.exports = {
     },
     "extends": "eslint:recommended",
     "installedESLint": true,
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -37,6 +38,7 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "react/jsx-uses-vars": 2
     }
 };

@@ -1,4 +1,4 @@
-import Header from './header'; //eslint-disable-line no-unused-vars
+import Header from './header';
 
 export class App extends React.Component {
   render () {
