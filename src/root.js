@@ -1,10 +1,12 @@
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, IndexRoute, Route, browserHistory } from 'react-router';
 import withMaterialUI from './decorators/withMaterialUI';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import appReducer from './reducers';
 
 import { App } from './components/app';
+import Start from './components/start';
+import { Login } from './components/login';
 
 const logger = ({ getState }) => {
   return (next) => (action) => {
@@ -24,7 +26,13 @@ export default class Root extends React.Component {
     return (
       <Provider store={store}>
         <Router history={browserHistory}>
-          <Route path='/' component={App} />
+          <Route path="/" component={App} >
+            <IndexRoute component={Start} />
+            <Route path="recipes" component={Start} />
+            <Route path="cart" component={Start} />
+            <Route path="graph" component={Start} />
+          </Route>
+          <Route path='/login' component={Login} />
         </Router>
       </Provider>
     );
