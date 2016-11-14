@@ -6,6 +6,7 @@ import appReducer from './reducers';
 
 import { App } from './components/app';
 import Start from './components/start';
+import Menu from './components/menu';
 import { Login } from './components/login';
 
 const logger = ({ getState }) => {
@@ -28,6 +29,7 @@ export default class Root extends React.Component {
         <Router history={browserHistory}>
           <Route path="/" component={App} >
             <IndexRoute component={Start} />
+            <Route path="menu" component={Menu} />
             <Route path="recipes" component={Start} />
             <Route path="cart" component={Start} />
             <Route path="graph" component={Start} />
