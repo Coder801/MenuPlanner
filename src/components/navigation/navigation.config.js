@@ -7,7 +7,7 @@ export const navItems = [
   {
     label: 'Menu',
     icon: <IconList />,
-    route: '/'
+    route: '/menu'
   },
   {
     label: 'Recipes',
