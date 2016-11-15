@@ -2,7 +2,7 @@ import {deepOrange500} from 'material-ui/styles/colors';
 import IconButton from 'material-ui/IconButton';
 import IconKitchen from 'material-ui/svg-icons/places/kitchen';
 
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
 const style = {
   parent: {

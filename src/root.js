@@ -2,6 +2,7 @@ import { Router, IndexRoute, Route, browserHistory } from 'react-router';
 import withMaterialUI from './decorators/withMaterialUI';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
 import appReducer from './reducers';
 
 import { App } from './components/app';
@@ -19,7 +20,7 @@ const logger = ({ getState }) => {
   };
 };
 
-let store = compose(applyMiddleware(logger))(createStore)(appReducer);
+let store = compose(applyMiddleware(thunkMiddleware, logger))(createStore)(appReducer);
 
 @withMaterialUI
 export default class Root extends React.Component {

@@ -4,6 +4,6 @@ export class Menu extends React.Component {
       <div>
         
       </div>
-      );
+    );
   }
-};
+}
