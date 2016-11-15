@@ -2,6 +2,8 @@ import {deepOrange500} from 'material-ui/styles/colors';
 import IconButton from 'material-ui/IconButton';
 import IconKitchen from 'material-ui/svg-icons/places/kitchen';
 
+import { Link } from 'react-router';
+
 const style = {
   parent: {
     minHeight: 'calc(100vh - 120px)',
@@ -22,12 +24,14 @@ const style = {
 export const Start = () => {
   return (
     <div style={style.parent}>
-      <IconButton
-        iconStyle={style.icon}
-        style={style.button}
-      >
-        <IconKitchen color={deepOrange500} />
-      </IconButton>
+      <Link to="/menu">
+        <IconButton
+          iconStyle={style.icon}
+          style={style.button}
+        >
+          <IconKitchen color={deepOrange500} />
+        </IconButton>
+      </Link>
     </div>
   );
 };

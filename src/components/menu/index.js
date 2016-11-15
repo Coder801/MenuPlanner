@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
-import { setDefaultSettings } from 'src/actions';
+import { getMenuList } from 'src/actions';
 import { Menu } from './menu';
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user //eslint-disable-line
+    menu: state.menu
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onMenuClick: (menu) => { //eslint-disable-line
-      dispatch(setDefaultSettings());
+    onMenuLoad: (menu) => {
+      dispatch(getMenuList(menu));
     }
   };
 };

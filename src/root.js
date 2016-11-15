@@ -2,11 +2,13 @@ import { Router, IndexRoute, Route, browserHistory } from 'react-router';
 import withMaterialUI from './decorators/withMaterialUI';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
 import appReducer from './reducers';
 
 import { App } from './components/app';
 import Start from './components/start';
 import Menu from './components/menu';
+import Recipes from './components/recipes';
 import { Login } from './components/login';
 
 const logger = ({ getState }) => {
@@ -19,7 +21,7 @@ const logger = ({ getState }) => {
   };
 };
 
-let store = compose(applyMiddleware(logger))(createStore)(appReducer);
+let store = compose(applyMiddleware(thunkMiddleware, logger))(createStore)(appReducer);
 
 @withMaterialUI
 export default class Root extends React.Component {
@@ -30,7 +32,7 @@ export default class Root extends React.Component {
           <Route path="/" component={App} >
             <IndexRoute component={Start} />
             <Route path="menu" component={Menu} />
-            <Route path="recipes" component={Start} />
+            <Route path="recipes" component={Recipes} />
             <Route path="cart" component={Start} />
             <Route path="graph" component={Start} />
           </Route>

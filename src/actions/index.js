@@ -10,3 +10,17 @@ export const setDefaultSettings = () => {
     type: 'SET_DEFAULT_SETTINGS'
   };
 };
+
+export const getRecipesList = (recipes) => {
+  return {
+    type: 'GET_RECIPES_LIST',
+    recipes
+  };
+};
+
+export const getMenuList = (menu) => {
+  return {
+    type: 'GET_MENU_LIST',
+    menu
+  };
+};
