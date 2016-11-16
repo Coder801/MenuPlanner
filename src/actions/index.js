@@ -24,3 +24,10 @@ export const getMenuList = (menu) => {
     menu
   };
 };
+
+export const getMenuItem = (menuItem) => {
+  return {
+    type: 'GET_MENU_ITEM',
+    menuItem
+  };
+};

@@ -1,4 +1,5 @@
 import Paper from 'material-ui/Paper';
+import { Link } from 'react-router';
 import { List, ListItem } from 'material-ui/List';
 
 export class Menu extends React.Component {
@@ -9,8 +10,16 @@ export class Menu extends React.Component {
       .then(json => this.props.onMenuLoad(json.menu));
   }
 
-  openMenuItem(id) {
-    console.log(id); // eslint-disable-line
+  buildLink(menuName) {
+    return menuName.toLowerCase().replace(/\s/g, '_');
+  }
+
+  setQuery(name, author, date) {
+    return {
+      name: name,
+      author: author,
+      date: date
+    };
   }
 
   render() {
@@ -19,7 +28,10 @@ export class Menu extends React.Component {
         <Paper zDepth={3}>
           <List>
             {
-              this.props.menu.map(menu => <ListItem key={menu.id} primaryText={menu.name} onClick={() => this.openMenuItem(menu.id)} />)
+              this.props.menu.map(menu => 
+                <ListItem key={menu.id} primaryText={menu.name} containerElement={
+                  <Link to={{ pathname: `/menu/:${this.buildLink(menu.name)}`, query: this.setQuery(menu.name, menu.author, menu.date) }} />
+                } />)
             }
           </List>
         </Paper>
