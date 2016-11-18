@@ -3,6 +3,7 @@ import withMaterialUI from './decorators/withMaterialUI';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import loggerMiddleware from 'redux-logger';
 import appReducer from './reducers';
 
 import { App } from './components/app';
@@ -12,17 +13,7 @@ import MenuItem from './components/menuItem';
 import Recipes from './components/recipes';
 import { Login } from './components/login';
 
-const logger = ({ getState }) => {
-  return (next) => (action) => {
-    console.log('dispatching', action);// eslint-disable-line
-    const result = next(action);
-
-    console.log('next state', getState());// eslint-disable-line
-    return result;
-  };
-};
-
-let store = compose(applyMiddleware(thunkMiddleware, logger))(createStore)(appReducer);
+let store = compose(applyMiddleware(thunkMiddleware, loggerMiddleware()))(createStore)(appReducer);
 
 @withMaterialUI
 export default class Root extends React.Component {
