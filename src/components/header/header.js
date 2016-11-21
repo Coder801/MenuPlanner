@@ -12,11 +12,11 @@ export class Header extends React.Component {
     super(props);
   }
 
-  onTitleClick(e) {
+  onTitleClick() {
     browserHistory.push('/');
   }
 
-  onSettingsClick(e) {
+  onSettingsClick() {
     
   }
 
@@ -28,6 +28,6 @@ export class Header extends React.Component {
         onTitleTouchTap={this.onTitleClick}
         iconElementRight={<FlatButton label="Settings" onTouchTap={this.onSettingsClick} />}
       />
-    )
+    );
   }
 }
