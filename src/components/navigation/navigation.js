@@ -10,7 +10,7 @@ const style = {
     bottom: 0,
     width: '100%'
   }
-}
+};
 
 export const Navigation = ({ location }) => {
   const currentRoute = _.findIndex(navItems, [ 'route', location.pathname ]);
