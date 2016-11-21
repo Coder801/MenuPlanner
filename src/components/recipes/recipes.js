@@ -1,5 +1,4 @@
-import Paper from 'material-ui/Paper';
-import { List, ListItem } from 'material-ui/List';
+import { GridList, GridTile } from 'material-ui/GridList';
 
 export class Recipes extends React.Component {
   componentWillMount () {
@@ -10,13 +9,15 @@ export class Recipes extends React.Component {
 
   render () {
     return (
-      <Paper zDepth={3}>
-        <List>
-          {
-            this.props.recipes.map(recipe => <ListItem key={recipe.id} primaryText={recipe.name} />)
-          }
-        </List>
-      </Paper>
+      <div>
+        <GridList cellHeight={180} >
+          {this.props.recipes.map((recipe) => (
+            <GridTile key={recipe.id} title={recipe.name} subtitle={<span>by <b>{recipe.author}</b></span>} >
+              <img src={recipe.image} />
+            </GridTile>
+          ))}
+        </GridList>
+      </div>
     );
   }
 }
