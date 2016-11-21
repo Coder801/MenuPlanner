@@ -4,10 +4,18 @@ import Paper from 'material-ui/Paper';
 
 import { navItems } from './navigation.config';
 
+const style = {
+  navigation: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%'
+  }
+}
+
 export const Navigation = ({ location }) => {
   const currentRoute = _.findIndex(navItems, [ 'route', location.pathname ]);
   return (
-    <Paper zDepth={3}>
+    <Paper zDepth={3} style={style.navigation}>
         <BottomNavigation selectedIndex={currentRoute} >
           {
             navItems.map((navItem, index) =>

@@ -9,7 +9,6 @@ import appReducer from './reducers';
 import { App } from './components/app';
 import Start from './components/start';
 import Menu from './components/menu';
-import MenuItem from './components/menuItem';
 import Recipes from './components/recipes';
 import { Login } from './components/login';
 
@@ -24,7 +23,6 @@ export default class Root extends React.Component {
           <Route path="/" component={App} >
             <IndexRoute component={Start} />
             <Route path="menu" component={Menu} />
-            <Route path="menu/:item" component={MenuItem} />
             <Route path="recipes" component={Recipes} />
             <Route path="cart" component={Start} />
             <Route path="graph" component={Start} />

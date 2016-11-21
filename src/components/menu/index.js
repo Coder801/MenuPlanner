@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { getMenuList } from 'src/actions';
-import { Menu } from './menu';
+import { getMenu } from 'src/actions';
+import Menu from './menu';
 
 const mapStateToProps = (state) => {
   return {
@@ -10,8 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onMenuLoad: (menu) => {
-      dispatch(getMenuList(menu));
+    onRecipesLoad: (menu) => {
+      dispatch(getMenu(menu));
     }
   };
 };

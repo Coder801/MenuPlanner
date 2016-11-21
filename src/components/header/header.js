@@ -1,10 +1,33 @@
 import { AppBar, FlatButton } from 'material-ui';
+import { browserHistory } from 'react-router';
 
-export const Header = ({ user, onSettingsClick }) => { //eslint-disable-line
-  return (
-    <AppBar
-      title="Menu Planner"
-      iconElementRight={<FlatButton label="Settings" onTouchTap={onSettingsClick} />}
-    />
-  );
+const style = {
+  title: {
+    cursor: 'pointer',
+  },
 };
+
+export class Header extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  onTitleClick(e) {
+    browserHistory.push('/');
+  }
+
+  onSettingsClick(e) {
+    
+  }
+
+  render() {
+    return (
+      <AppBar
+        title="Menu Planner"
+        style={style.title}
+        onTitleTouchTap={this.onTitleClick}
+        iconElementRight={<FlatButton label="Settings" onTouchTap={this.onSettingsClick} />}
+      />
+    )
+  }
+}

@@ -18,16 +18,9 @@ export const getRecipesList = (recipes) => {
   };
 };
 
-export const getMenuList = (menu) => {
+export const getMenu = (menu) => {
   return {
-    type: 'GET_MENU_LIST',
+    type: 'GET_MENU',
     menu
-  };
-};
-
-export const getMenuItem = (menuItem) => {
-  return {
-    type: 'GET_MENU_ITEM',
-    menuItem
   };
 };
