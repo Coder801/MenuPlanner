@@ -36,7 +36,11 @@ export class Recipes extends React.Component {
       <div>
         <GridList cols={this.state.cols}>
           {this.props.recipes.map((recipe) => (
-            <GridTile key={recipe.id} title={recipe.name} subtitle={<span>by <b>{recipe.author}</b></span>} >
+            <GridTile key={recipe.id}
+                      title={recipe.name}
+                      subtitle={<span>by <b>{recipe.author}</b></span>}
+                      onTouchTap={() => this.props.openDetails(recipe.id)}
+            >
               <img src={recipe.image} />
             </GridTile>
           ))}
