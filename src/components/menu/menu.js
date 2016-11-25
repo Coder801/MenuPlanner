@@ -21,6 +21,10 @@ export default class Menu extends React.Component {
     this.state = {
       value: 'breakfast',
     };
+
+    fetch('/api/menu')
+      .then(response => response.json())
+      .then(json => this.props.onMenuLoad(json.menu));
   }
 
   handleChange(value) {
@@ -37,10 +41,9 @@ export default class Menu extends React.Component {
       >
         {data.map((item, key) => (
             <Tab label={item.label} value={item.value} key={key} >
-              <Meal item={item} />
+              <Meal item={this.props.menu} />
             </Tab>
         ))}
-        <Tab icon={<IconAdd />} />
       </Tabs>
     );
   }

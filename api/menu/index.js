@@ -6,6 +6,6 @@ menuRouter.get('/', getMenuList);
 module.exports = menuRouter;
 
 function getMenuList (req, res) {
-  const fakeMenus = getFakeMenus(20);
+  const fakeMenus = getFakeMenus(5);
   return res.json({menu: fakeMenus});
 }
