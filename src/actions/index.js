@@ -18,6 +18,17 @@ export const getRecipesList = (recipes) => {
   };
 };
 
+export const getRecipeDetails = (recipeId) => {
+  return {
+    type: 'GET_RECIPE_DETAILS',
+    recipeId
+  };
+};
+
+export const clearRecipeSelection = () => {
+  return {  type: 'CLEAR_RECIPE_SELECTION' };
+};
+
 export const getMenu = (menu) => {
   return {
     type: 'GET_MENU',
