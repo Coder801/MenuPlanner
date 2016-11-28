@@ -6,7 +6,7 @@ import { navItems } from './navigation.config';
 
 const style = {
   navigation: {
-    position: 'absolute',
+    position: 'fixed',
     bottom: 0,
     width: '100%'
   }

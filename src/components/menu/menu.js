@@ -1,7 +1,9 @@
-import { Tabs, Tab } from 'material-ui/Tabs';
-import { Meal } from './meal';
+import { WeekMenu } from './weekMenu/';
+import styles from './menu.css';
 
-const data = [{
+const daysArr = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+const meals = [{
   label: 'Breakfast',
   value: 'breakfast'
 }, {
@@ -16,33 +18,22 @@ export default class Menu extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      value: 'breakfast',
-    };
 
     fetch('/api/menu')
       .then(response => response.json())
       .then(json => this.props.onMenuLoad(json.menu));
   }
 
-  handleChange(value) {
-    this.setState({
-      value: value,
-    });
-  }
-
   render() {
     return (
-      <Tabs
-        value={this.state.value}
-        onChange={this.handleChange.bind(this)}
-      >
-        {data.map((item, key) => (
-            <Tab label={item.label} value={item.value} key={key} >
-              <Meal item={this.props.menu} />
-            </Tab>
+      <table className={styles.container}>
+        <thead>
+          <tr></tr>
+        </thead>
+        {daysArr.map((day, key) => (
+          <WeekMenu day={day} meals={meals} key={key} />
         ))}
-      </Tabs>
+      </table>
     );
   }
 }

@@ -26,7 +26,7 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, plugins: ['transform-runtime'] },
-            { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css-loader!postcss-loader') },
+            { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader') },
             { test: /\.scss$/, loader: 'style!css?modules&sourceMap&localIdentName=[local]___[hash:base64:5]!resolve-url!sass?outputStyle=expanded&sourceMap' },
             {
                 test: /\.(ttf|eot|woff|woff2|png|ico|jpg|jpeg|gif|svg)$/i,
@@ -50,7 +50,7 @@ module.exports = {
             'ReactDOM': 'react-dom'
         }),
         // Extracts all imported .css files to one bundle.css file
-        new ExtractTextPlugin('bundle.css')
+        new ExtractTextPlugin('bundle.css', {disable: process.env.NODE_ENV !== 'production'})
     ],
     // creates source map for our code
     devtool: 'cheap-module-eval-source-map',

@@ -16,11 +16,11 @@ export class Recipes extends React.Component {
   }
 
   componentDidMount () {
-    document.addEventListener('resize', this.onResize);
+    window.addEventListener('resize', this.onResize);
   }
 
   componentWillUnmount () {
-    document.removeEventListener('resize', this.onResize);
+    window.removeEventListener('resize', this.onResize);
   }
 
   onResize () {
