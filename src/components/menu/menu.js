@@ -1,8 +1,6 @@
 import { Tabs, Tab } from 'material-ui/Tabs';
 import { Meal } from './meal';
 
-import IconAdd from 'material-ui/svg-icons/content/add';
-
 const data = [{
   label: 'Breakfast',
   value: 'breakfast'
