@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import { setDefaultSettings } from 'src/actions';
 import { Navigation } from './navigation';
 
-
 const mapStateToProps = (state) => {
   return {
     user: state.user //eslint-disable-line

@@ -18,10 +18,10 @@ export const getRecipesList = (recipes) => {
   };
 };
 
-export const getRecipeDetails = (recipeId) => {
+export const getRecipeDetails = (recipe) => {
   return {
     type: 'GET_RECIPE_DETAILS',
-    recipeId
+    recipe
   };
 };
 
