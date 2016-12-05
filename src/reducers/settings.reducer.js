@@ -1,12 +1,12 @@
 import { defaultSettings } from '../config/settings.default';
+import { handleAction } from 'redux-actions';
 
-const settingsReducer = (state = {}, action) => {
-  switch (action.type) {
-  case 'SET_DEFAULT_SETTINGS':
-    return _.cloneDeep(defaultSettings);
-  default:
-    return state;
-  }
-};
+const settingsReducer = handleAction('SET_DEFAULT_SETTINGS',
+  {
+    next() { return _.cloneDeep(defaultSettings); },
+    throw() { return { error: 'Some error occurs' }; }
+  },
+  {...defaultSettings}
+);
 
 export default settingsReducer;

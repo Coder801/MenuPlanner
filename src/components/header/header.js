@@ -16,17 +16,13 @@ export class Header extends React.Component {
     browserHistory.push('/');
   }
 
-  onSettingsClick() {
-    
-  }
-
   render() {
     return (
       <AppBar
         title="Menu Planner"
         style={style.title}
         onTitleTouchTap={this.onTitleClick}
-        iconElementRight={<FlatButton label="Settings" onTouchTap={this.onSettingsClick} />}
+        iconElementRight={<FlatButton label="Settings" onTouchTap={this.props.onSettingsClick} />}
       />
     );
   }
