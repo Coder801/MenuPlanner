@@ -21,10 +21,6 @@ export class Header extends React.Component {
     browserHistory.push('/');
   }
 
-  onSettingsClick() {
-    
-  }
-
   render() {
     return (
       <AppBar

@@ -25,7 +25,7 @@ export default class Root extends React.Component {
             <IndexRoute component={Start} />
             <Route path="menu" component={Menu} />
             <Route path="recipes" component={Recipes} />
-            <Route path="recipes/:id" component={RecipeDetails} />
+            <Route path="recipes/:recipeId" component={RecipeDetails} />
             <Route path="cart" component={Start} />
             <Route path="graph" component={Start} />
           </Route>

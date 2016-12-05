@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { clearRecipeSelection } from 'src/actions';
+import { getRecipeDetails, clearRecipeSelection } from 'src/actions';
 import { RecipeDetails } from './recipe-details';
 
 const mapStateToProps = (state) => {
@@ -10,6 +10,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    onRecipeLoad: (recipe) => {
+      dispatch(getRecipeDetails(recipe));
+    },
     onUnmount: () => {
       dispatch(clearRecipeSelection());
     }

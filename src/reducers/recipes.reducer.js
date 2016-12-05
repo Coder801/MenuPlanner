@@ -8,8 +8,7 @@ const recipesReducer = (state = initialState, action) => {
   case 'GET_RECIPES_LIST':
     return { ...state, list: action.recipes };
   case 'GET_RECIPE_DETAILS':
-    const selectedRecipe = _.find(state.list, [ 'id', action.recipeId ]);
-    return { ...state, selectedRecipe };
+    return { ...state, selectedRecipe: action.recipe };
   case 'CLEAR_RECIPE_SELECTION':
     return { ...state, selectedRecipe: null };
   default:
