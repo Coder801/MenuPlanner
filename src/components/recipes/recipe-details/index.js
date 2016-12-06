@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
-import { getRecipeDetails, clearRecipeSelection } from 'src/actions';
 import { RecipeDetails } from './recipe-details';
+import actions from 'src/actions';
+
+const { getRecipeDetails, clearRecipeSelection } = actions;
 
 const mapStateToProps = (state) => {
   return {

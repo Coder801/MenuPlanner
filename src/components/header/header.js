@@ -27,7 +27,7 @@ export class Header extends React.Component {
         title="Menu Planner"
         style={style.title}
         onTitleTouchTap={this.onTitleClick}
-        iconElementRight={<FlatButton label="Settings" onTouchTap={this.onSettingsClick} />}
+        iconElementRight={<FlatButton label="Settings" onTouchTap={this.props.onSettingsClick} />}
         style={style.container}
       />
     );
