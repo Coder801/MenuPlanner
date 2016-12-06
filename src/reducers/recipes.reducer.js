@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export default handleActions({
-  GET_RECIPES_LIST: (state, action) => ({ ...state, list: action.payload }),
+  GET_RECIPES_LIST: (state, action) => ({ ...state, list: action.payload.recipes }),
   GET_RECIPE_DETAILS: (state, action) => ({ ...state, selectedRecipe: action.payload }),
   CLEAR_RECIPE_SELECTION: (state) => ({ ...state, selectedRecipe: null })
 }, initialState);

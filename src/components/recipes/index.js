@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { Recipes } from './recipes';
 import actions from 'src/actions';
+import { get } from 'shared/requests';
 
 const { getRecipesList } = actions;
 
@@ -12,8 +13,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onRecipesLoad: (recipes) => {
-      dispatch(getRecipesList(recipes));
+    loadRecipes: () => {
+      get('recipes')
+        .then((response) => dispatch(getRecipesList(response)));
     }
   };
 };

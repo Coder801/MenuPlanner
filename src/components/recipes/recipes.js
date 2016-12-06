@@ -7,13 +7,8 @@ export class Recipes extends React.Component {
   constructor (props) {
     super(props);
     this.state = { cols: this.columnNumber };
+    this.props.loadRecipes();
     this.onResize = this.onResize.bind(this);
-  }
-
-  componentWillMount () {
-    fetch('/api/recipes')
-      .then(response => response.json())
-      .then(json => this.props.onRecipesLoad(json.recipes));
   }
 
   componentDidMount () {
