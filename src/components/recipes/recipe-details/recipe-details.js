@@ -10,6 +10,14 @@ export class RecipeDetails extends React.Component {
     this.props.onUnmount();
   }
 
+  addToMenu () {
+    this.props.addToMenu(this.props.recipe);
+  }
+
+  addToFavorites () {
+    this.props.addToFavorites(this.props.recipe);
+  }
+
   render () {
     const recipe = this.props.recipe;
     if (recipe === null) {
@@ -24,8 +32,8 @@ export class RecipeDetails extends React.Component {
         </CardMedia>
         <CardText>{recipe.method}</CardText>
         <CardActions>
-          <FlatButton label="Add to menu" />
-          <FlatButton label="Add to favorites" />
+          <FlatButton label="Add to menu" onTouchTap={::this.addToMenu} />
+          <FlatButton label="Add to favorites" onTouchTap={::this.addToFavorites} />
         </CardActions>
       </Card>
     );
