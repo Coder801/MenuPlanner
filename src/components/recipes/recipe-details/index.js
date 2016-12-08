@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { RecipeDetails } from './recipe-details';
 import actions from 'src/actions';
+import { read } from 'shared/requests';
 
 const { getRecipeDetails, clearRecipeSelection } = actions;
 
@@ -12,8 +13,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onRecipeLoad: (recipe) => {
-      dispatch(getRecipeDetails(recipe));
+    loadRecipe: (recipeId) => {
+      read(`recipes/${recipeId}`)
+        .then(recipe => dispatch(getRecipeDetails(recipe)));
     },
     onUnmount: () => {
       dispatch(clearRecipeSelection());
