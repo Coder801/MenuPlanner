@@ -2,7 +2,9 @@ const recipesRouter = require('express').Router();
 const { getFakeRecipe, getFakeRecipes } = require('../api-mocks/recipes');
 
 recipesRouter.get('/', getRecipesList);
-recipesRouter.get('/:recipeId', getRecipeById);
+recipesRouter.route('/:recipeId')
+  .get(getRecipeById)
+  .put(updateRecipe);
 
 module.exports = recipesRouter;
 
@@ -12,4 +14,8 @@ function getRecipesList(req, res) {
 
 function getRecipeById(req, res) {
   return res.json(getFakeRecipe(req.params.recipeId));
+}
+
+function updateRecipe(req, res) {
+  return res.json(req.body);
 }
