@@ -1,12 +1,10 @@
-export const setCurrentUser = (user) => {
-  return {
-    type: 'SET_CURRENT_USER',
-    user
-  };
-};
+import { createActions } from 'redux-actions';
 
-export const setDefaultSettings = () => {
-  return {
-    type: 'SET_DEFAULT_SETTINGS'
-  };
-};
+export default createActions(
+  'SET_CURRENT_USER',
+  'SET_DEFAULT_SETTINGS',
+  'GET_DISHES_LIST',
+  'GET_RECIPES_LIST',
+  'GET_RECIPE_DETAILS',
+  'CLEAR_RECIPE_SELECTION'
+);

@@ -1,9 +1,35 @@
-export const Header = ({ user, onSettingsClick }) => {
-  return (
-        <div className="header">
-            <h3 className="heading">Menu Planner</h3>
-            <span>{user.name}</span>
-            <button onClick={onSettingsClick}>Settings</button>
-        </div>
-  );
+import { AppBar, FlatButton } from 'material-ui';
+import { browserHistory } from 'react-router';
+
+const style = {
+  container: {
+    position: 'fixed',
+    top: 0,
+    width: '100%'
+  },
+  title: {
+    cursor: 'pointer',
+  },
 };
+
+export class Header extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  onTitleClick() {
+    browserHistory.push('/');
+  }
+
+  render() {
+    return (
+      <AppBar
+        title="Menu Planner"
+        style={style.title}
+        onTitleTouchTap={this.onTitleClick}
+        iconElementRight={<FlatButton label="Settings" onTouchTap={this.props.onSettingsClick} />}
+        style={style.container}
+      />
+    );
+  }
+}

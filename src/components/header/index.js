@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
-import { setDefaultSettings } from 'src/actions';
+import actions from 'src/actions';
 import { Header } from './header';
+
+const { setDefaultSettings } = actions;
 
 const mapStateToProps = (state) => {
   return {

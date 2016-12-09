@@ -1,0 +1,9 @@
+.week {
+    margin: 65px auto;
+    max-width: calc(100% - 20px);
+    width: 100%;
+}
+
+.day {
+  margin-bottom: 5px;
+}
