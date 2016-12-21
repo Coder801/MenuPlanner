@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import loggerMiddleware from 'redux-logger';
+import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import appReducer from './reducers';
 
 import { App } from './components/app';
@@ -13,14 +14,19 @@ import Recipes from './components/recipes';
 import RecipeDetails from './components/recipes/recipe-details';
 import { Login } from './components/login';
 
-let store = compose(applyMiddleware(thunkMiddleware, loggerMiddleware()))(createStore)(appReducer);
+let store = compose(applyMiddleware(
+  thunkMiddleware,
+  loggerMiddleware(),
+  routerMiddleware(browserHistory)
+))(createStore)(appReducer);
+const history = syncHistoryWithStore(browserHistory, store);
 
 @withMaterialUI
 export default class Root extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Router history={browserHistory}>
+        <Router history={history}>
           <Route path="/" component={App} >
             <IndexRoute component={Start} />
             <Route path="menu" component={Menu} />
