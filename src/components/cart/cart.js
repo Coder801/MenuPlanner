@@ -50,7 +50,7 @@ export class Cart extends React.Component {
             stripedRows={this.state.stripedRows}
           >
             {this.props.items.map((item) => (
-              <TableRow key={item.id}>
+              <TableRow key={item.id} onTouchTap={() => this.props.toggleDone(item)}>
                 <TableRowColumn>{item.name}</TableRowColumn>
               </TableRow>
             ))}
