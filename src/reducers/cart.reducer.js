@@ -5,13 +5,15 @@ const initialState = {
 };
 
 export default handleActions({
-  GET_CART_LIST: (state, action) => ({ ...state, list: action.payload }),
+  GET_CART_LIST: (state, action) => ({ ...state, list: sortGroceryList(action.payload) }),
   TOGGLE_GROCERY_DONE: (state, action) => {
     const newList = [ ...state.list ];
-    const itemIndex = _.findIndex(newList, [ 'id', action.payload ]);
-    const item = newList.splice(itemIndex, 1)[0];
+    const item = _.find(newList, [ 'id', action.payload ]);
     item.done = !item.done;
-    newList.push(item);
-    return { ...state, list: newList };
+    return { ...state, list: sortGroceryList(newList) };
   }
 }, initialState);
+
+function sortGroceryList (list) {
+  return _.sortBy(list, [ 'done', 'name' ]);
+}
