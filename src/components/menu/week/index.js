@@ -1,23 +1,15 @@
-import Day from '../day/';
 import styles from '../menu.css';
+import {Day} from '../day';
 
-const meals = [{
-  label: 'Breakfast',
-  value: 'breakfast'
-}, {
-  label: 'Lunch',
-  value: 'lunch'
-}, {
-  label: 'Dinner',
-  value: 'dinner'
-}];
-
-export const Week = ({ days }) => {
+export const Week = ({menu}) => {
   return (
     <div className={styles.week}>
-      {days.map((day, key) => (
-        <Day meals={meals} title={day} key={key} />
-      ))}
+      {
+        menu.map((item, key) => {
+          return <Day key={key} day={item}/>;
+        }
+        )
+      }
     </div>
   );
 };

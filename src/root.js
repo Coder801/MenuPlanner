@@ -14,11 +14,13 @@ import Recipes from './components/recipes';
 import RecipeDetails from './components/recipes/recipe-details';
 import { Login } from './components/login';
 
-let store = compose(applyMiddleware(
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+let store = compose(composeEnhancers(applyMiddleware(
   thunkMiddleware,
   loggerMiddleware(),
   routerMiddleware(browserHistory)
-))(createStore)(appReducer);
+)))(createStore)(appReducer);
 const history = syncHistoryWithStore(browserHistory, store);
 
 @withMaterialUI
@@ -30,6 +32,7 @@ export default class Root extends React.Component {
           <Route path="/" component={App} >
             <IndexRoute component={Start} />
             <Route path="menu" component={Menu} />
+            <Route path="menu/:day" component={Menu} />
             <Route path="recipes" component={Recipes} />
             <Route path="recipes/:recipeId" component={RecipeDetails} />
             <Route path="cart" component={Start} />
