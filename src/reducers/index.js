@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
+import cart from './cart.reducer';
 import recipes from './recipes.reducer';
 import menu from './menu.reducer';
 import dishes from './dishes.reducer';
@@ -10,6 +11,7 @@ const appReducer = combineReducers({
   menu,
   dishes,
   recipes,
+  cart,
   settings,
   user,
   routing: routerReducer

@@ -12,6 +12,7 @@ import Start from './components/start';
 import Menu from './components/menu';
 import Recipes from './components/recipes';
 import RecipeDetails from './components/recipes/recipe-details';
+import Cart from './components/cart';
 import { Login } from './components/login';
 
 let store = compose(applyMiddleware(
@@ -32,7 +33,7 @@ export default class Root extends React.Component {
             <Route path="menu" component={Menu} />
             <Route path="recipes" component={Recipes} />
             <Route path="recipes/:recipeId" component={RecipeDetails} />
-            <Route path="cart" component={Start} />
+            <Route path="cart" component={Cart} />
             <Route path="graph" component={Start} />
           </Route>
           <Route path='/login' component={Login} />
