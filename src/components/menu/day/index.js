@@ -1,28 +1,24 @@
-import { connect } from 'react-redux';
-import actions from 'src/actions';
-import { read } from 'shared/requests';
-import Day from './day';
+import styles from '../menu.css';
+import {Table, TableBody, TableRow, TableRowColumn} from 'material-ui/Table';
 
-const { getDishesList } = actions;
+export const Day = () => {
 
-const mapStateToProps = (state) => {
-  return {
-    dishes: state.dishes.list
-  };
+  return (
+    <Table className={styles.day}>
+      <TableBody
+        displayRowCheckbox={false}
+      >
+        <TableRow>
+          <TableRowColumn colSpan="3">
+            <h1>Title</h1>
+          </TableRowColumn>
+        </TableRow>
+        <TableRow>
+          <TableRowColumn>
+            test
+          </TableRowColumn>
+        </TableRow>
+      </TableBody>
+    </Table>
+  );
 };
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loadDishes: () => {
-      read('dishes')
-        .then((response) => dispatch(getDishesList(response)));
-    }
-  };
-};
-
-const DishesContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Day);
-
-export default DishesContainer;

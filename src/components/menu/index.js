@@ -1,24 +1,28 @@
-import { connect } from 'react-redux';
-import { getMenu } from 'src/actions';
-import Menu from './menu';
+import {connect} from 'react-redux';
+import {Menu} from './menu';
+import actions from 'src/actions';
+import {read} from 'shared/requests';
+
+const {getMenusList} = actions;
 
 const mapStateToProps = (state) => {
   return {
-    menu: state.menu
+    menus: state.menus.list
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onMenuLoad: (menu) => {
-      dispatch(getMenu(menu));
+    loadMenus: () => {
+      read('menus')
+        .then(response => dispatch(getMenusList(response)));
     }
   };
 };
 
 const MenuContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Menu);
 
 export default MenuContainer;

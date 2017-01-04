@@ -1,16 +1,15 @@
 import { Week } from './week/';
 
-const days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-
-export default class Menu extends React.Component {
+export class Menu extends React.Component {
 
   constructor(props) {
     super(props);
+    this.props.loadMenus();
   }
 
   render() {
     return (
-      <Week days={days} />
+      <Week menu={this.props.menus} />
     );
   }
 }

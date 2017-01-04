@@ -6,5 +6,5 @@ const initialState = {
 };
 
 export default handleActions({
-  GET_DISHES_LIST: (state, action) => ({ ...state, list: action.payload.dishes })
+  GET_MENUS_LIST: (state, action) => ({ ...state, list: action.payload.menus })
 }, initialState);

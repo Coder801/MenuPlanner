@@ -1,12 +1,9 @@
-const initialState = [];
+import { handleActions } from 'redux-actions';
 
-const menuReducer = (state = initialState, action) => {
-  switch (action.type) {
-  case 'GET_MENU':
-    return [ ...action.menu ];
-  default:
-    return state;
-  }
+const initialState = {
+  list: []
 };
 
-export default menuReducer;
+export default handleActions({
+  GET_MENUS_LIST: (state, action) => ({ ...state, list: action.payload.menus })
+}, initialState);
