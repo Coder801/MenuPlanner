@@ -35,6 +35,7 @@
     "babel-eslint": "^7.1.0",
     "babel-jest": "^18.0.0",
     "babel-loader": "^6.2.5",
+    "babel-plugin-module-resolver": "^2.4.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-es2015": "^6.14.0",
@@ -53,6 +54,7 @@
     "jest": "^18.1.0",
     "node-sass": "^3.10.0",
     "postcss-loader": "^0.13.0",
+    "react-addons-test-utils": "^15.4.1",
     "react-css-modules": "^4.1.0",
     "react-test-renderer": "^15.4.1",
     "resolve-url-loader": "^1.6.0",
@@ -81,6 +83,18 @@
     "redux-thunk": "^2.1.0"
   },
   "jest": {
+    "transform": { ".*": "<rootDir>/node_modules/babel-jest" },
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils",
+      "<rootDir>/node_modules/fbjs"
+    ],
+    "setupFiles": [ "<rootDir>/jest.setup.js" ],
+    "moduleNameMapper": {
+      "^src": "<rootDir>/src",
+      "^shared": "<rootDir>/src/shared"
+    },
     "testRegex": "(\\.|/)(test|spec)\\.js?$"
   }
 }
