@@ -1,14 +1,12 @@
-import styles from '../menu.css';
+import styles from './week.css';
 import {Day} from '../day';
 
 export const Week = ({menu}) => {
+
   return (
     <div className={styles.week}>
       {
-        menu.map((item, key) => {
-          return <Day key={key} day={item}/>;
-        }
-        )
+        Object.keys(menu).map((day, key) => <Day key={key} day={day} menu={menu[day]}/>)
       }
     </div>
   );

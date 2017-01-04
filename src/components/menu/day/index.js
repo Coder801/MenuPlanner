@@ -1,23 +1,23 @@
-import styles from '../menu.css';
+import styles from './day.css';
+import {DishShort} from '../dishShort/';
 import {Table, TableBody, TableRow, TableRowColumn} from 'material-ui/Table';
 
-export const Day = () => {
-
+export const Day = ({menu, day}) => {
   return (
     <Table className={styles.day}>
       <TableBody
         displayRowCheckbox={false}
       >
         <TableRow>
-          <TableRowColumn colSpan="3">
-            <h1>Title</h1>
+          <TableRowColumn colSpan="9">
+            <h1>{day}</h1>
           </TableRowColumn>
         </TableRow>
-        <TableRow>
-          <TableRowColumn>
-            test
-          </TableRowColumn>
-        </TableRow>
+        {
+          Object.keys(menu).map((dish, key) => (
+            <DishShort dish={dish} dishes={menu[dish]} key={key}/>
+          ))
+        }
       </TableBody>
     </Table>
   );

@@ -1,0 +1,5 @@
+.week {
+  margin: 75px auto 65px;
+  max-width: calc(100% - 20px);
+  width: 100%;
+}

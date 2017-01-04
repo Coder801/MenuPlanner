@@ -3,10 +3,12 @@ const bodyParser = require('body-parser');
 const apiRouter = require('express').Router();
 const menusRouter = require('./menus');
 const recipesRouter = require('./recipes');
+const cartRouter = require('./cart');
 
 apiRouter.use(bodyParser.json());
 
 apiRouter.use('/menus', menusRouter);
 apiRouter.use('/recipes', recipesRouter);
+apiRouter.use('/cart', cartRouter);
 
 module.exports = apiRouter;

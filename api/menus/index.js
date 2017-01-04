@@ -5,7 +5,8 @@ menusRouter.get('/', getMenusList);
 
 module.exports = menusRouter;
 
+const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday']
 
 function getMenusList(req, res) {
-  return res.json({menus: getFakeDays(4)});
+  return res.json({menus: getFakeDays(...days)});
 }

@@ -60,7 +60,7 @@ module.exports = {
     new ExtractTextPlugin('bundle.css', {disable: process.env.NODE_ENV !== 'production'})
   ],
   // creates source map for our code
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval-source-map',
   'postcss': [
     autoprefixer({
       browsers: [

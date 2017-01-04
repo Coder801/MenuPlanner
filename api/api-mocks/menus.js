@@ -6,7 +6,7 @@ module.exports = {
 
 function getFakeDish(id) {
   return {
-    id,
+    id: id,
     name: faker.commerce.productName(),
     gramms: faker.random.number(),
     proteins: faker.random.number(),
@@ -17,36 +17,33 @@ function getFakeDish(id) {
 
 function getFakeDishes(count) {
   let i = 0;
-  const fakeDishes = [];
-  while (i < count) {
-    const fakeDish = getFakeDish(++i);
-    fakeDishes.push(fakeDish);
+  let dishes = [];
+  while(i < count) {
+    dishes.push(getFakeDish(i));
+    i++;
   }
 
-  return fakeDishes;
+  return dishes;
 }
 
 function getFakeDayMenu(dishes) {
   let i = 0;
   const fakeDayMenu = {};
   while (i < arguments.length) {
-    fakeDayMenu[arguments[i]] = getFakeDishes(1);
+    fakeDayMenu[arguments[i]] = getFakeDishes(faker.random.number({ min: 5, max: 8 }));
     i++;
   }
 
   return fakeDayMenu;
 }
 
-
-function getFakeDays(count) {
+function getFakeDays(days) {
   let i = 0;
   const dishes = ['Breakfast', 'Lunch', 'Dinner'];
-  const fakeDays = [];
-  const date = new Date();
-  while (i < count) {
-    fakeDays.push({
-      [i]: getFakeDayMenu(...dishes)
-    })
+  const fakeDay = {};
+  const fakeDays = {};
+  while (i < arguments.length) {
+    fakeDays[arguments[i]] = getFakeDayMenu(...dishes)
     i++;
   }
 
