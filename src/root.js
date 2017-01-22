@@ -13,6 +13,7 @@ import Menu from './components/menu';
 import Recipes from './components/recipes';
 import RecipeDetails from './components/recipes/recipe-details';
 import Cart from './components/cart';
+import Graph from './components/graph';
 import { Login } from './components/login';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -37,7 +38,7 @@ export default class Root extends React.Component {
             <Route path="recipes" component={Recipes} />
             <Route path="recipes/:recipeId" component={RecipeDetails} />
             <Route path="cart" component={Cart} />
-            <Route path="graph" component={Start} />
+            <Route path="graph" component={Graph} />
           </Route>
           <Route path='/login' component={Login} />
         </Router>

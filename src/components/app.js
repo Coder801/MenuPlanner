@@ -1,6 +1,5 @@
 import Header from './header';
 import Navigation from './navigation';
-// import Start from './start';
 
 const style = {
   app: {
